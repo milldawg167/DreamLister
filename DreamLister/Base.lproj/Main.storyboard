@@ -213,6 +213,9 @@
                                 <state key="normal" title="Save Item">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="savePressed:" destination="YJM-HT-hzU" eventType="touchUpInside" id="1kv-Oe-h7X"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTb-H6-m7m">
                                 <rect key="frame" x="16" y="343" width="343" height="170"/>
