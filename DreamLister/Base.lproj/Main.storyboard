@@ -30,6 +30,9 @@
                                     <segment title="Title"/>
                                 </segments>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="segmentChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="CeS-kj-l6m"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6wW-qf-9Xh">
                                 <rect key="frame" x="10" y="119" width="355" height="548"/>
@@ -46,7 +49,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7BZ-uM-1ZO">
                                                     <rect key="frame" x="15" y="11" width="325" height="128"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tesla" translatesAutoresizingMaskIntoConstraints="NO" id="5tj-k7-h8r">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePick" translatesAutoresizingMaskIntoConstraints="NO" id="5tj-k7-h8r">
                                                             <rect key="frame" x="8" y="14" width="100" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="100" id="FN5-E1-xxn"/>
@@ -149,19 +152,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePick" translatesAutoresizingMaskIntoConstraints="NO" id="K8b-sd-PLD">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePick" translatesAutoresizingMaskIntoConstraints="NO" id="K8b-sd-PLD">
                                 <rect key="frame" x="16" y="72" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="5hO-63-R6a"/>
                                     <constraint firstAttribute="width" constant="100" id="wiR-08-byG"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eya-0P-0bf">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eya-0P-0bf">
                                 <rect key="frame" x="16" y="72" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="DGA-yu-QcQ"/>
                                     <constraint firstAttribute="height" constant="100" id="EmY-BF-5s3"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="addImage:" destination="YJM-HT-hzU" eventType="touchUpInside" id="QUT-D9-TPA"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uqx-Mt-Md6" customClass="CustomTextField" customModule="DreamLister" customModuleProvider="target">
                                 <rect key="frame" x="124" y="82" width="235" height="40"/>
@@ -253,12 +259,16 @@
                     <navigationItem key="navigationItem" title="Add/Edit" id="1RR-4v-UlI">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="qyh-OH-mqt">
                             <color key="tintColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="deletePressed:" destination="YJM-HT-hzU" id="w70-xu-18W"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="detailsField" destination="eAy-Ce-vDf" id="y0y-DG-QLl"/>
                         <outlet property="priceField" destination="pUU-Sk-4gv" id="4vf-or-bgu"/>
                         <outlet property="storePicker" destination="iTb-H6-m7m" id="3R0-9W-7hD"/>
+                        <outlet property="thumbImg" destination="K8b-sd-PLD" id="VIv-nd-4wf"/>
                         <outlet property="titleField" destination="uqx-Mt-Md6" id="IR8-C2-7wI"/>
                     </connections>
                 </viewController>
@@ -292,7 +302,6 @@
     </scenes>
     <resources>
         <image name="imagePick" width="300" height="300"/>
-        <image name="tesla" width="800" height="489"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="b43-to-mjQ"/>
